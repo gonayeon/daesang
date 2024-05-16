@@ -12,15 +12,9 @@
         <link rel="stylesheet" th:href="@{/css/pc/common/responsive.css}">
     </th:block>
 
-    <th:block layout:fragment="script">
-        <script>
-            const pageName = "PC_MAIN";
-            const vpnClientFileRef = "[[${vpnClientFileRef}]]";
-            const vpnAgentFileRef = "[[${npassAppAgentFileRef}]]";
-            const osCode = "[[${osCode}]]";
-        </script>
-        <script type="text/javascript" th:src="@{/js/pc/main/main-landing.js}"></script>
-    </th:block>
+    <link rel="stylesheet" href="/static/css/common/common.css">
+    <link rel="stylesheet" href="/static/css/main/main-landing.css">
+    <!-- <script type="text/javascript" th:src="@{/js/pc/main/main-landing.js}"></script> -->
 </head>
 
 <body>
