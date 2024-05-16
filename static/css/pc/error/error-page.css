@@ -1,0 +1,23 @@
+header nav {
+    display: none;
+}
+
+.section_right_wrap {
+    display: none;
+}
+
+.pc_error-page_background img {
+    position: fixed;
+    top: 50%;
+    right: -3%;
+    transform: translateY(-50%);
+    width: 80rem;
+    height: auto;
+    opacity: 0.1;
+    z-index: -10000;
+}
+
+.pc_error-page h2:first-child {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+}

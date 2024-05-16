@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+    layout:decorate="~{layout/pc-default-layout.html}">
+<head>
+    <title th:text="#{page.title.pc.vpnOpenSuccess}">[DAESANG SSL VPN] PC VPN OPEN SUCCESS</title>
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/pc/vpn/vpn-connect.css}">
+        <link rel="stylesheet" th:href="@{/css/pc/common/responsive.css}">
+    </th:block>
+
+    <th:block layout:fragment="script">
+        <script>
+            const pageName = "PC_VPN-OPEN-COMPLETE";
+            const osCode = "[[${osCode}]]";
+            const mdmUseFlag = "[[${mdmUseFlag}]]";
+        </script>
+    </th:block>
+</head>
+<body>
+    <section layout:fragment="left-content">
+        <div class="section_left_contents" id="pc_vpn-connect_contents">
+            <div>
+                <div>
+                    <div class="pc_vpn-connect" id="pc_vpn-connect_success">
+                        <img src="/images/pc_vpn-connect_success.png" alt="체크표시">
+                        <div class="pc_vpn-connect_text_wrap">
+                            <h4 th:utext="#{pc.authenticate.vpnOpenComplete.message}">
+                                Mac OS VPN 인증이 성공했습니다.<br><br>
+                                VPN Client가 설치되어 있지 않은 경우, VPN 터널이 오픈되지 않을 수 있습니다.<br>
+                                이 경우, 아래 VPN Client 설치하기 버튼을 통해 설치 후 다시 접속을 시도해 주시기 바랍니다.
+                            </h4>
+                        </div>
+
+                        <div id="vpn-open-complete-botton-wrap">
+                            <div>
+                                <button class="common-button-style-80-reverse" type="button" onclick="downloadVpnClient(osCode, mdmUseFlag)" th:text="#{pc.authenticate.vpnOpenComplete.vpnClientDownload.button}">
+                                    VPN Client 설치하기
+                                </button>
+                            </div>
+
+                            <form th:action="@{/authenticate/two-factor/log-out}" th:method="post">
+                                <button class="common-button-style-80" th:text="#{pc.authenticate.vpnOpenComplete.returnMain.button}" type="submit">처음 화면으로 돌아가기</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section_right" layout:fragment="right-content"></div>
+</body>
+</html>

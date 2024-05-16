@@ -1,0 +1,410 @@
+/* faq 공통 섹션 */
+
+
+.section_right_wrap {
+    display: none;
+}
+
+.section_left_wrap {
+    width: 100%;
+}
+
+.section_left {
+    width: 100%;
+}
+
+header #gnb .pc_title_faq {
+    color: #000;
+}
+
+section {
+    color: #888B8D;
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* faq title section */
+
+.faq_title_section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    height: 6.4rem;
+    gap: 5rem;
+}
+
+.faq_title_section > p {
+    font-size: 6.4rem;
+    color: #000;
+    height: 6.4rem;
+    width: 22rem;
+    line-height: 6.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.faq_title_section > h2 {
+    width: 72%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/**/
+
+/* 검색 input 바 */
+
+.pc_search-box {
+    border-bottom: 0.2rem solid #888B8D;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width: 72.5rem;
+    width: 100%;
+    margin-right: 0.7rem;
+}
+
+.pc_search-box img {
+    margin: 0 1.5rem 0 1rem;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+
+.pc_search-box input[type="search"] {
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+
+/**/
+
+/**/
+
+
+
+
+
+
+
+
+
+
+/* faq list st */
+
+#faq_list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#faq_list_search {
+    height: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+#faq_list_search > form {
+    height: 100%;
+    width: 100%;
+}
+
+#faq_list_search .pc_search-box {
+    max-width: none;
+}
+
+#faq_list_category > ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#faq_list_category button {
+    border: 0.2rem solid #888B8D;
+    background-color: #fff;
+    border-radius:  1rem;
+    font-size: 2.8rem;
+    color: #888B8D;
+    padding: 0.5rem 1.5rem;
+    margin: 0.5rem 0.5rem 0 0;
+}
+
+#faq_list_category button.select_button_design {
+    background-color: #000;
+    border: 0.2rem solid #000;
+    color: #fff;
+}
+
+#faq_list_content {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.faq_list_table {
+    flex-grow: 1;
+    margin-top: 1rem;
+}
+
+.faq_list_table > table {
+    width: 100%;
+    text-align: center;
+}
+
+.faq_list_table th {
+    color: #000;
+    font-size: 2.8rem;
+}
+
+.faq_list_table tr {
+    height: 7rem;
+    line-height: 3rem;
+}
+
+th, td {
+    vertical-align: middle;
+}
+
+.faq_list_table thead tr:first-child {
+    border-bottom: 0.2rem solid #000;
+}
+
+.faq_list_table th:nth-child(1), .faq_list_table td:nth-child(1) {
+    width: 11%;
+}
+
+.faq_list_table td:nth-child(2) {
+    padding: 0 0.5rem;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+td a {
+    display: block;
+    width: 50rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.faq_list_table th:nth-child(2), .faq_list_table td:nth-child(2) {
+    width: 54%;
+    table-layout: fixed;
+}
+
+.faq_list_table th:nth-child(3), .faq_list_table td:nth-child(3) {
+    width:20%;
+}
+
+.faq_list_table th:nth-child(4), .faq_list_table td:nth-child(4) {
+    width: 15%;
+}
+
+.faq_list_table tbody td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fap_list_button_section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page_select {
+    border: 0.2rem solid #888B8D;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+    max-width: 57.2rem;
+    width: 100%;
+    align-items: center;
+    color: #888B8D;
+}
+
+.page_select > ul {
+    display: flex;
+    border-left: 0.2rem solid #888B8D;
+    border-right: 0.2rem solid #888B8D;
+    height: 3rem;
+    align-items: center;
+    width: 54%;
+}
+
+.page_select > ul > li {
+     width: 20%;
+     text-align: center;
+}
+
+.page_select > button {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    font-size: 2rem;
+    padding: 0 1.2rem;
+    cursor: pointer;
+    width: 23%;
+    height: 5rem;
+    align-items: center;
+    color: #000;
+    border: none;
+}
+
+.page_select img {
+    width: 1.5rem;
+    height: 1.7rem;
+}
+
+.page_number_active {
+    color: #E42312;
+}
+
+/**/
+
+
+
+
+
+
+
+
+
+/* faq detail st */
+
+#faq_detail {
+    height: 100%;
+    color: #888B8D;
+}
+
+#faq_detail_scroll {
+    height: calc(100% - 8rem);
+    padding: 2rem 0 2rem 2rem;
+    margin-bottom: 3rem;
+}
+
+#faq_detail_scroll > div {
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 2rem;
+}
+
+
+.faq_section_top {
+    border-bottom: 0.2rem solid #000;
+    width: 100%;
+    height: 9rem;
+    line-height: 9rem;
+    font-size: 2.8rem;
+    color: #000;
+}
+
+.faq_section_bottom {
+    border-bottom: 0.2rem solid #888B8D;
+    padding: 1rem;
+}
+
+.faq_section_top > ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.faq_section_top > ul li:first-child {
+    width: 63%;
+    text-align: left;
+}
+
+.faq_section_top > ul li:first-child span {
+    width: 50rem;
+    height: 100%;
+    text-indent: 1rem;
+}
+
+.faq_section_top > ul li:nth-child(2) {
+    width: 25%;
+}
+
+.faq_section_top > ul li:nth-child(2) span {
+    width: 18rem;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.faq_section_top > ul li span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.faq_toggle_box {
+    width: 12%;
+}
+
+
+
+.faq_toggle_box button {
+    border: none;
+    background-color: transparent;
+    font-size: 2.8rem;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.faq_toggle_box .faq_unfold_button {
+    display: none;
+}
+
+.faq_toggle_box button img {
+    filter: brightness(0%);
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-left: 0.3rem;
+}
+
+.answer_section .faq_section_top {
+    display: flex;
+}
+
+.answer_section .faq_section_top span {
+    display: block;
+}
+
+.answer_section .faq_section_top span:first-child {
+    width: 8%;
+    padding-left: 1rem;
+}
+
+.answer_section .faq_section_top span:last-child {
+    display: block;
+    padding-right: 1rem;
+    width: 92%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#faq_detail_button {
+    text-align: right;
+}
+
+#faq_detail_button button {
+    background-color: #E42312;
+    color: #fff;
+    width: 11rem;
+    height: 5rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: 2.8rem;
+    cursor: pointer;
+}
+
+/**/

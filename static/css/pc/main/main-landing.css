@@ -1,0 +1,123 @@
+#pc_landing_left_contents > h2 {
+    font-size: 6.4rem;
+    line-height: 9rem;
+    margin-bottom: 4.5rem;
+}
+
+#pc-notice-banner {
+    border: 0.1rem solid #9D9D9C;
+    max-width: 63rem;
+    width: 100%;
+    height: 6rem;
+    line-height: 6rem;
+    border-radius: 1rem;
+    display: flex;
+    z-index: 100;
+}
+
+#pc-notice-banner > h3 {
+    font-size: 2.6rem;
+    border-right: 0.1rem solid #9D9D9C;
+    width: 16.3rem;
+    text-align:  center;
+}
+
+#pc-notice-banner > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 16.3rem);
+    padding: 0 2rem;
+}
+
+#nt_ct_wrap {
+    width: calc(100% - 1.8rem - 1.9rem - 3rem);
+    overflow: hidden;
+}
+
+#pc-notice-banner #nt_ct_wrap > div {
+    width: 100%;
+    height: 6rem;
+}
+
+#pc-notice-banner #nt_ct {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#pc-notice-banner #nt_ct > li {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+#pc-notice-banner #nt_ct > li > div {
+    white-space: nowrap;
+    will-change: transform;
+    width: 34rem;
+    height: 100%;
+}
+
+#pc-notice-banner #nt_ct > li > div.marquee {
+    animation: marquee 10s linear infinite;
+}
+
+#pc-notice-banner #nt_ct > li > div > a {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+#pc-notice-banner > div > img {
+    width: 1.9rem;
+    height: 2.3rem;
+}
+
+#pc-notice-banner > div > ul {
+    font-family: "CJW_Gothic_R";
+}
+
+#pc-notice-banner #arrowobox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 3.9rem;
+}
+
+#pc-notice-banner #arrowobox > img {
+    width: 1.8rem;
+    height: 1.6rem;
+    cursor: pointer;
+}
+
+#pc_landing_right_contents {
+    top: 55%;
+}
+
+#pc_landing_right_contents > p {
+    font-size: 2rem;
+    line-height: 1.4;
+}
+
+#pc_landing_right_contents > p:first-child {
+    font-size: 2.8rem;
+    margin-bottom: 2.2rem;
+}
+
+#pc_landing_right_contents > p a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#pc_landing_right_contents > p a span {
+    text-decoration: underline;
+}
+
+#pc_landing_right_contents .landing-start-button {
+    margin: 5rem 0 ;
+}

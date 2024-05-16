@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/pc-default-layout.html}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title th:text="#{page.title.pc.noticeList}">[DAESANG SSL VPN] PC NOTICE LIST</title>
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/pc/notice/notice.css}" >
+        <link rel="stylesheet" th:href="@{/css/pc/common/responsive.css}">
+    </th:block>
+
+    <th:block layout:fragment="script">
+        <script>
+            const pageName = "PC_NOTICE-LIST";
+        </script>
+    </th:block>
+</head>
+<body>
+    <section layout:fragment="left-content">
+        <div class="pc_notice_list subC">
+            <div class="pc_notice_title">
+                <p th:text="#{pc.notice.list.titleSection.title}">공지사항</p>
+                <h2 th:text="#{pc.notice.list.titleSection.guideMent}">새로운 공지사항을 알려드립니다.</h2>
+            </div>
+
+            <div id="pc_notice_search_section">
+                <form th:action="@{/notice/list}" th:method="get">
+                    <div class="pc_search-box">
+                        <img src="/images/search.png" alt="돋보기모양">
+                        <input type="hidden" name="page" th:value="1">
+                        <input type="hidden" name="size" th:value="5">
+                        <input type="search" name="searchKeyword" th:placeholder="#{pc.notice.list.search.input.placeholder}" th:value="${param.searchKeyword}" autocomplete="off">
+                    </div>
+                </form>
+            </div>
+
+            <div class="pc_notice_contents">
+                <div id="pc_notice_list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th th:text="#{pc.table.category.number}">번호</th>
+                                <th th:text="#{pc.table.category.title}">제목</th>
+                                <th th:text="#{pc.table.category.dateCreated}">작성일</th>
+                                <th th:text="#{pc.table.category.writer}">작성자</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:if="${#lists.isEmpty(notices)}">
+                                <td colspan="4" th:text="#{pc.table.list.empty.message}">게시물이 존재하지 않습니다.</td>
+                            </tr>
+
+                            <tr th:if="${!#lists.isEmpty(notices)}" th:each="notice : ${notices}">
+                                <td class="noticeId" th:text="${notice.noticeId}">번호</td>
+                                <td class="noticeTitle" th:id="noticeId_ +${notice.noticeId}" >
+                                    <a th:href="@{/notice/detail/{id}
+                                                         (id            = ${notice.noticeId},
+                                                          page          = ${pagination.page},
+                                                          size          = 5,
+                                                          searchKeyword = ${param.searchKeyword})}"
+                                       th:text="${notice.noticeTitle}">제목</a>
+                                </td>
+                                <td class="noticeCreateDate" th:text="${#temporals.format(notice.noticeCreateDate, 'yyyy-MM-dd')}">작성일</td>
+                                <td class="noticeCreateUserName" th:text="${notice.noticeCreateUserName}">작성지</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="page_select">
+                    <button>
+                        <img src="/images/arrow_left.png" alt="왼쪽화살표">
+                        <a th:href="@{/notice/list (page          = ${pagination.prevPage},
+                                                    size          = 5,
+                                                    searchKeyword = ${param.searchKeyword})}">
+                            <span th:text="#{pc.button.previous}">Previous</span>
+                        </a>
+                    </button>
+
+                    <ul>
+                        <li th:each="pageNumber : ${#numbers.sequence(pagination.startPage, pagination.endPage)}" th:attr="class=${pageNumber == pagination.page ? 'page_number_active' : ''}">
+                            <a th:href="@{/notice/list (page          = ${pageNumber},
+                                                        size          = 5,
+                                                        searchKeyword = ${param.searchKeyword})}" th:text="${pageNumber}">1</a>
+                        </li>
+                    </ul>
+
+                    <button>
+                        <a th:href="@{/notice/list (page          = ${pagination.nextPage},
+                                                    size          = 5,
+                                                    searchKeyword = ${param.searchKeyword})}">
+                            <span th:text="#{pc.button.next}">Next</span>
+                        </a>
+                        <img src="/images/arrow_right.png" alt="오른쪽화살표">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

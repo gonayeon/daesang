@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+    layout:decorate="~{layout/pc-default-layout.html}">
+<head>
+    <title th:text="#{page.title.pc.vpnOpenSuccess}">[DAESANG SSL VPN] PC VPN OPEN SUCCESS</title>
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/pc/vpn/vpn-connect.css}">
+        <link rel="stylesheet" th:href="@{/css/pc/common/responsive.css}">
+    </th:block>
+
+    <th:block layout:fragment="script">
+        <script>
+            const pageName = "PC_VPN-OPEN-SUCCESS";
+        </script>
+    </th:block>
+</head>
+<body>
+    <section layout:fragment="left-content">
+        <div class="section_left_contents" id="pc_vpn-connect_contents">
+            <div>
+                <div>
+                    <div class="pc_vpn-connect" id="pc_vpn-connect_success">
+                        <img src="/images/pc_vpn-connect_success.png" alt="체크표시">
+                        <div class="pc_vpn-connect_text_wrap">
+                            <h4 th:text="#{pc.authenticate.vpnOpenSuccess.guideMessage.vpnSuccess}">
+                                VPN 터널 오픈이 완료 되었습니다.
+                            </h4> 
+                            <h4 th:utext="#{pc.authenticate.vpnOpenSuccess.guideMessage.connect}">
+                                브라우저에서 필요한<br>
+                                사내 서버를 접속하여 주시기 바랍니다.
+                            </h4>
+                        </div>
+                        <div>
+                            <form th:action="@{/authenticate/two-factor/log-out}" th:method="post">
+                                <button class="common-button-style-80" th:text="#{pc.authenticate.vpnOpenSuccess.button.pageReset}" type="submit">처음 화면으로 돌아가기</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section_right" layout:fragment="right-content"></div>
+</body>
+</html>

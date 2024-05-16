@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head th:replace="fragments/pc-config :: pcConfigFragment"/>
+
+    <body>
+        <div class="pc-common_wrap">
+            <div class="section_left_wrap">
+                <div>
+                    <div class="section_left">
+                        <header th:replace="fragments/pc-header :: pcHeaderFragment"></header>
+                        <section layout:fragment="left-content"></section>
+                        <footer th:replace="fragments/pc-footer :: pcFooterFragment"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section_right_wrap">
+                <div>
+                    <div class="section_right" layout:fragment="right-content"  id="pc-right-content"></div>
+                </div>
+            </div>
+
+            <div id="modalArea"></div>
+        </div>
+    </body>
+</html>

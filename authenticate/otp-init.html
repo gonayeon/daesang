@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout/pc-default-layout.html}">
+<head>
+    <title th:text="#{page.title.pc.otpInit}">[DAESANG SSL VPN] PC OTP-INIT AUTHENTICATE</title>
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/pc/authenticate/authenticate.css}" >
+        <link rel="stylesheet" th:href="@{/css/pc/common/responsive.css}">
+    </th:block>
+
+    <th:block layout:fragment="script">
+        <script>
+            const pageName = "PC_OTP-INIT";
+            const otpCheckCount = [[${otpCheckCount}]];
+        </script>
+        <script type="text/javascript" th:src="@{/js/pc/authenticate/otp.js}"></script>
+    </th:block>
+</head>
+<body>
+    <section layout:fragment="left-content">
+        <h1><img src="/images/logo_daesang.png" alt="대상로고"></h1>
+
+        <div class="section_left_contents" id="pc_auth_otp_left_contents">
+            <h2 th:utext="#{pc.authenticate.otp.sectionLeft.guideMent.initOtp}">
+                초기 접속이므로 재설정이 필요합니다.
+            </h2>
+            <h2>
+                <div><span th:text="${maskingContactInfo}" id="maskingContactInfo" class="pointC">***@daesang.com</span></div>
+                <span th:utext="#{pc.authenticate.otp.sectionLeft.guideMent.sendOtpCode}">으로<br>인증 코드를 전송했습니다.</span>
+            </h2>
+        </div>
+    </section>
+
+    <div class="section_right" layout:fragment="right-content" id="pc_auth_otp_right_contents">
+        <ul>
+            <li>
+                <h3 th:text="#{pc.authenticate.otp.sectionRight.inputFeild.title.code}">
+                    인증 코드
+                </h3>
+                <input type="password" autocomplete="off" th:placeholder="#{pc.authenticate.otp.sectionRight.input.backgroundText.example}" id="inputOtpCode" maxlength="6">
+            </li>
+        </ul>
+
+        <div class="wrongNBcount" id="otpFailCheckDom">
+            <span th:text="#{pc.authenticate.otp.sectionRight.inputFeild.guideCount}">잘못 입력한 횟수 : </span>
+            <span id="otpCheckFailCount">0</span> / <span id="otpCheckCount" th:text="${otpCheckCount}"></span>
+        </div>
+
+        <div class="auto_log subC">
+            <div class="check-box">
+                <input onclick="updateVpnAppToken();" type="checkbox" class="myCheckbox" id="autoConnectCheckbox">
+                <label for="autoConnectCheckbox" class="myCheckbox-label"></label>
+            </div>
+
+            <div class="auto_log_r">
+                <div>
+                    <span th:text="#{pc.signIn.sectionRight.logIn.checkSection.autoLog}">자동접속</span>
+                    <img src="/images/question_mark.png" alt="물음표">
+                </div>
+                <span th:text="#{pc.signIn.sectionRight.logIn.checkSection.guideMent}">
+                    공용 PC에서는 정보 보안을 위해 체크를 권장하지 않습니다.
+                </span>
+            </div>
+        </div>
+
+        <div>
+            <button class="otp-authenticate-button common-button-style-70" th:text="#{pc.authenticate.otp.sectionRight.inputFeild.button.enterCode}" id="otpButton" onclick="otpCheck();">인증 코드 입력</button>
+        </div>
+
+        <div class="otp_s_r_guide_ment">
+            <ul>
+                <li>
+                    <img src="/images/otp_i_mark.png" alt="i마크" class="i-mark">
+                    <p th:text="#{pc.authenticate.otp.sectionRight.inputFeild.guideMent.correctCode}">인증코드를 정확히 입력해 주세요.</p>
+                </li>
+                <li>
+                    <img src="/images/otp_timer.png" alt="타이머" class="timer">
+                    <p class="pointC" th:text="#{pc.authenticate.otp.sectionRight.inputFeild.guideMent.wrongCount.timeLimit}">잘못된 입력이 5회 이상일 시 5분간 로그인이 제한됩니다.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

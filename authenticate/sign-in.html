@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/pc-default-layout.html}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title th:text="#{page.title.pc.signIn}">[DAESANG SSL VPN] PC SIGN-IN</title>
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/pc/authenticate/sign-in.css}">
+        <link rel="stylesheet" th:href="@{/css/pc/common/responsive.css}">
+    </th:block>
+
+    <th:block layout:fragment="script">
+        <script>
+            const pageName = "PC_SIGN-IN";
+            const osCode = "[[${osCode}]]";
+            const passwordCheckCount = [[${passwordCheckCount}]];
+        </script>
+        <script type="text/javascript" th:src="@{/js/pc/authenticate/sign-in.js}"></script>
+    </th:block>
+</head>
+<body>
+    <section layout:fragment="left-content">
+        <h1><img src="/images/logo_daesang.png" alt="대상로고"></h1>
+
+        <div class="section_left_contents" id="pc_auth_signIn_left_contents">
+            <h2 class="subC" th:utext="#{pc.signIn.sectionLeft.guideMent.certificationForUse}">
+                VPN사용 등록을 위해<br>임직원 인증을 수행하여 주십시오.
+            </h2>
+        </div>
+    </section>
+
+    <div class="section_right" layout:fragment="right-content" id="pc_auth_signIn_right_contents">
+        <ul id="pc_sign-in_login_field" class="subC">
+            <li>
+                <h3 th:text="#{pc.signIn.sectionRight.logIn.title.company}">회사</h3>
+                <div id="pc_sign-in_company_select">
+                    <div id="pc_sign-in_toggle_feild">
+                        <div class="toggle-header">
+                            <span></span>
+                            <div>
+                                <img class="down_arrow" src="/images/notice_arrow_down.png" alt="▼">
+                                <img class="up_arrow hidden" src="/images/notice_arrow_up.png" alt="▲">
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul id="pc_sign-in_company_list">
+                        <li th:each="vpnCompCode : ${vpnCompCodes}">
+                            <span th:text="${vpnCompCode.compName}" th:id="'compCd_'+${vpnCompCode.compCd} +'_'+${vpnCompCode.passwordUseYn}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li id="pcSignInUsernameArea">
+                <h3 th:text="#{pc.signIn.sectionRight.logIn.title.id}">사번</h3>
+                <div>
+                    <input autocomplete="off" maxlength="8" id="pc_signIn_id" type="text" th:placeholder="#{pc.signIn.sectionRight.logIn.input.id.placeholder}">
+                </div>
+            </li>
+
+            <li id="pcSignInPasswordArea">
+                <h3 th:text="#{pc.signIn.sectionRight.logIn.title.password}">비밀번호</h3>
+                <div>
+                    <input class="errorInput" autocomplete="off" id="pc_signIn_password" type="password" th:placeholder="#{pc.signIn.sectionRight.logIn.input.password.placeholder}">
+                    <img src="/images/password-check-eye.png" id="password-view-icon" onclick="clickIconPasswordView();" alt="비밀번호보기아이콘">
+                    <img src="/images/password-check-eye-close.png" id="password-hide-icon" onclick="clickIconPasswordView();" alt="비밀번호가리기아이콘">
+                </div>
+            </li>
+
+            <li id="pcSignInContactInfoArea" style="display: none;">
+                <h3 id="contactInfo-title"></h3>
+                <div>
+                    <input id="pc_signIn_contactInfo" type="text" disabled>
+                </div>
+            </li>
+        </ul>
+
+        <div class="wrongNBcount">
+            <div id="passwordCheckFailCountDom">
+                <span th:text="#{pc.signIn.sectionRight.password.check.fail.count}">잘못 입력한 횟수 : </span>
+                <span id="passwordCheckFailCount">0</span> / <span th:text="${passwordCheckCount}"></span>
+            </div>
+        </div>
+
+        <div>
+            <button id="pcSignInButton" class="pc-sign-in-button common-button-style-80" th:text="#{pc.signIn.sectionRight.logIn.button}">로그인</button>
+        </div>
+
+        <div class="auto_log subC">
+            <div class="check-box">
+                <input type="checkbox" class="myCheckbox" id="autoConnectCheckbox" onclick="updateAutoConnectionEnable();">
+                <label for="autoConnectCheckbox" class="myCheckbox-label"></label>
+            </div>
+            <div class="auto_log_r">
+                <div>
+                    <span th:text="#{pc.signIn.sectionRight.logIn.checkSection.autoLog}">자동접속</span>
+                    <img src="/images/question_mark.png" alt="물음표">
+                </div>
+                <span th:text="#{pc.signIn.sectionRight.logIn.checkSection.guideMent}">
+                    공용 PC에서는 정보 보안을 위해 체크를 권장하지 않습니다.
+                </span>
+            </div>
+        </div>
+
+        <div class="password-check_guide_ment" id="password-check_guide_ment">
+            <ul>
+                <li>
+                    <img src="/images/otp_i_mark.png" alt="i마크" class="i-mark">
+                    <p th:text="#{pc.signIn.sectionRight.password.check.guidMent1}">비밀번호를 정확히 입력해 주세요.</p>
+                </li>
+                <li>
+                    <img src="/images/otp_timer.png" alt="타이머" class="timer">
+                    <p class="pointC"  th:text="#{pc.signIn.sectionRight.password.check.guidMent2}">잘못된 입력이 5회 이상일 시 5분간 로그인이 제한됩니다.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

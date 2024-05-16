@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org "
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div id="side_dim" th:fragment="mobileSidebarFragment">
+    <nav id="side_bar">
+        <div class="side_inner" id="side_logo_section">
+            <a href="/"><img src="/images/mobile/m_sidebar_npass.png" alt="npass로고"></a>
+        </div>
+        <ul class="side_menu">
+            <li>
+                <a>
+                    <div class="language_toggle">
+                        <span></span>
+                        <div class="toggle_arrow_box">
+                            <img class="m_down_arrow" src="/images/mobile/m_arrow_down.png" alt="아래화살표">
+                            <img class="m_up_arrow" src="/images/mobile/m_arrow_up.png" alt="위화살표">
+                        </div>
+                    </div>
+                </a>
+                <ul class="language_toggle_list" id="language">
+                    <li th:text="#{mobile.common.sideBar.menu.language.select.ko}" id="language_ko">한국어</li>
+                    <li th:text="#{mobile.common.sideBar.menu.language.select.en}" id="language_en">영어</li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="/notice/list" th:text="#{mobile.common.sideBar.menu.notice}">공지사항</a>
+            </li>
+
+            <li>
+                <a href="/faq/list" th:text="#{mobile.common.sideBar.menu.faq}">FAQ</a>
+            </li>
+
+            <li sec:authorize="isAnonymous()">
+                <a onclick="checkTwoAuthenticateDeviceManagement();" th:text="#{mobile.common.sideBar.menu.management}">디바이스 관리</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()">
+                <a onclick="moveToDeviceManagement();" th:text="#{mobile.common.sideBar.menu.management}">디바이스 관리</a>
+            </li>
+
+            <li sec:authorize="isAnonymous()">
+                <a onclick="checkTwoAuthenticateVpnAccess();" th:text="#{mobile.common.sideBar.menu.vpn}">VPN 접속</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()">
+                <a href="/vpn/open-start" th:text="#{mobile.common.sideBar.menu.vpn}">VPN 접속</a>
+            </li>
+
+            <li sec:authorize="isAnonymous()">
+                <a onclick="disconnectVpn();" th:text="#{mobile.common.sideBar.menu.vpnDisconnect}">VPN 끊기</a>
+            </li>
+
+            <li sec:authorize="isAuthenticated()">
+                <a onclick="logoutAfterDisconnectVpn();" th:text="#{mobile.common.sideBar.menu.vpnDisconnect}">VPN 끊기</a>
+            </li>
+        </ul>
+        <div class="side_bottom">
+            <a onclick="openGuide()" th:utext="#{mobile.common.sideBar.bottom.guideMent}">도움이 필요하신가요&#63;</a>
+        </div>
+    </nav>
+</div>

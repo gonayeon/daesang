@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="mobileConfigFragment">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon" sizes="16x16">
+
+    <link rel="stylesheet" href="/css/mobile/common/mobile-common.css">
+    <link rel="stylesheet" href="/css/mobile/common/mobile-header.css">
+    <link rel="stylesheet" href="/css/mobile/common/mobile-sidebar.css">
+    <link rel="stylesheet" href="/css/mobile/common/mobile-modal.css">
+    <link rel="stylesheet" href="/css/mobile/common/mobile-auth-modal.css">
+    <link rel="stylesheet" href="/css/mobile/common/patternlock.css">
+
+    <script src="/js/library/jquery-3.7.0.min.js"></script>
+    <script src="/js/library/jquery.pinlogin.js"></script>
+    <script src="/js/library/patternlock.js"></script>
+
+    <script src="/js/mobile/common/sidebar.js"></script>
+    <script src="/js/mobile/common/modal.js"></script>
+    <script src="/js/common/authenticate.js"></script>
+    <script src="/js/common/authenticate-apis.js"></script>
+    <script src="/js/common/vpnAgentUtils.js"></script>
+    <script src="/js/common/vpnClientUtils.js"></script>
+    <script src="/js/common/domUtils.js"></script>
+    <script src="/js/common/agent.js?v=1"></script>
+    <script src="/js/common/cookieUtils.js"></script>
+
+    <script th:inline="javascript">
+        updateIsAppToSession();
+        const locale = [[${#locale}]];
+        const domMessage = {
+            "mobile_faq_question_close_button" : [[#{mobile.faq.question.close.button}]],
+            "mobile_faq_notice_list_empty_message" : [[#{mobile.faq.notice.list.empty.message}]],
+            "mobile_signIn_message_beforeSendOtp1" : [[#{mobile.authenticate.idPw.guideMent.beforeSendOtp1}]],
+            "mobile_signIn_message_beforeSendOtp2_mobile" : [[#{mobile.authenticate.idPw.guideMent.beforeSendOtp2.mobileNo}]],
+            "mobile_signIn_message_beforeSendOtp2_email" : [[#{mobile.authenticate.idPw.guideMent.beforeSendOtp2.email}]],
+            "mobile_signIn_message_default_message1" : [[#{mobile.authenticate.idPw.guideMent.title.login}]],
+            "mobile_signIn_message_default_message2" : [[#{mobile.authenticate.idPw.guideMent.forUse}]],
+            "mobile_signIn_message_passwordCheckLock_message" : [[#{mobile.authenticate.idPw.password-check-lock.message}]],
+            "mobile_signIn_message_passwordCheckLock_remainTime" : [[#{mobile.authenticate.idPw.password-check-lock.remainTime}]],
+            "mobile_signIn_input_password_placeholder" : [[#{mobile.authenticate.idPw.inputSection.input.password}]],
+            "mobile_signIn_input_email_title" : [[#{mobile.authenticate.idPw.inputSection.title.email}]],
+            "mobile_signIn_input_mobileNo_title" : [[#{mobile.authenticate.idPw.inputSection.title.mobileNo}]],
+            "mobile_signIn_signIn_button" : [[#{mobile.authenticate.idPw.button.login}]],
+            'mobile_signIn_otpSend_button' : [[#{mobile.authenticate.idPw.button.otpSend}]],
+            "mobile_signIn_password_input_fail_placeholder" : [[#{mobile.authenticate.idPw.input.password.placeholder.fail}]],
+            "mobile_signIn_password_input_lock_placeholder" : [[#{mobile.authenticate.idPw.input.password.placeholder.lock}]],
+            "mobile_otp_message_otpCheckLock_message" : [[#{mobile.authenticate.otp.otp-check-lock.message}]],
+            "mobile_otp_message_otpCheckLock_remainTime" : [[#{mobile.authenticate.otp.otp-check-lock.remainTime}]],
+            "mobile_otp_otpSecond_message_default" : [[#{mobile.authenticate.otp.guideMent.otp}]],
+            "mobile_otp_otp_message_default1" : [[#{mobile.authenticate.otp.guideMent.writeCode}]],
+            "mobile_otp_otp_message_default2" : [[#{mobile.authenticate.otp.guideMent.sent}]],
+            "mobile_otp_otp_input_default_placeholder" : [[#{mobile.authenticate.otp.input.placeHolder.code}]],
+            "mobile_otp_otp_input_fail_placeholder" : [[#{mobile.authenticate.otp.input.placeholder.fail}]],
+            "mobile_otp_otp_input_lock_placeholder" : [[#{mobile.authenticate.otp.input.placeholder.lock}]],
+            "mobile_otp_otp_input_resend_placeholder" : [[#{mobile.authenticate.otp.input.placeholder.resend}]],
+            "mobile_otp_otp_button_default" : [[#{mobile.authenticate.otp.button.writeCode}]],
+            "mobile_otp_otp_button_resend" : [[#{mobile.authenticate.otp.button.resend}]],
+            "mobile_set_password_message_match_password" : [[#{mobile.set-password.message.passwordMatch}]],
+            "mobile_set_password_message_notMatch_password" : [[#{mobile.set-password.message.passwordNotMatch}]],
+            "mobile_reset_password_message_success_change_password1" : [[#{mobile.reset-password.message.passwordUpdateComplete.up}]],
+            "mobile_set_password_message_success_change_password1" : [[#{mobile.set-password.message.passwordUpdateComplete.up}]],
+            "mobile_set_password_message_success_change_password2" : [[#{mobile.set-password.message.passwordUpdateComplete.down}]],
+            "mobile_set_password_button_success_change" : [[#{mobile.set-password.button.goMain}]],
+            "mobile_set_password_button_success_change_continue_registerBio" : [[#{mobile.set-password.button.continue.registerBio}]],
+            "mobile_set_password_button_success_change_continue_vpnAccess" : [[#{mobile.set-password.button.continue.vpnAccess}]],
+            "mobile_deviceManagement_deviceInfo_title" : [[#{mobile.device-management.device-info.title}]],
+            "mobile_deviceManagement_deviceInfo_message" : [[#{mobile.device-management.device-info.message}]],
+            "mobile_deviceManagement_deviceInfo_modelName" : [[#{mobile.device-management.device-info.modelName}]],
+            "mobile_deviceManagement_deviceInfo_registDate" : [[#{mobile.device-management.device-info.registDate}]],
+            "mobile_deviceManagement_deviceInfo_os" : [[#{mobile.device-management.device-info.os}]],
+            "mobile_deviceManagement_deviceInfo_mfaType" : [[#{mobile.device-management.device-info.mfaType}]],
+            "mobile_deviceManagement_deviceAdd_button" : [[#{mobile.device-management.device-add.button}]],
+        }
+        const modalMessage = {
+            'modal_common_title_success' : [[#{mobile.modal.common.title.success}]],
+            'modal_common_title_error' : [[#{mobile.modal.common.title.error}]],
+            'modal_common_title_info' : [[#{mobile.modal.common.title.info}]],
+            'modal_common_button_confirm' : [[#{mobile.modal.common.confirm.button}]],
+            'modal_common_button_close' : [[#{mobile.modal.common.close.button}]],
+            'modal_loading_title_wait' : [[#{mobile.modal.loading.title.wait}]],
+            'modal_loading_message_wait' : [[#{mobile.modal.loading.message.wait}]],
+            'modal_loading_title_vpn' : [[#{mobile.modal.loading.title.vpn}]],
+            'modal_loading_message_vpn_tunneling_open' : [[#{mobile.modal.loading.message.vpnTunnelingOpen}]],
+            'modal_loading_message_mfa_auth' : [[#{mobile.modal.loading.message.mfaAuth}]],
+            'modal_loading_message_mfa_auth_addButton' : [[#{mobile.modal.loading.message.mfaAuth.addButton}]],
+            'modal_mfaCheck_error_message_unknown' : [[#{mobile.modal.mfaCheck.error.message.unknown}]],
+            'modal_mfaCheck_error_title_notSupport' : [[#{mobile.modal.mfaCheck.error.title.notSupport}]],
+            'modal_mfaCheck_error_message_notSupport' : [[#{mobile.modal.mfaCheck.error.message.notSupport}]],
+            'modal_mfaCheck_error_title_notEnrolled' : [[#{mobile.modal.mfaCheck.error.title.notEnrolled}]],
+            'modal_mfaCheck_error_message_notEnrolled' : [[#{mobile.modal.mfaCheck.error.message.notEnrolled}]],
+            'modal_mfaAuthenticate_error_title' : [[#{mobile.modal.mfaAuthenticate.error.title}]],
+            'modal_mfaAuthenticate_error_message' : [[#{mobile.modal.mfaAuthenticate.error.message}]],
+            'modal_mfaAuthenticate_error_noDevice_title' : [[#{mobile.modal.mfaAuthenticate.error.noDevice.title}]],
+            'modal_mfaAuthenticate_error_noDevice_message' : [[#{mobile.modal.mfaAuthenticate.error.noDevice.message}]],
+            'modal_qr_title' : [[#{mobile.modal.qr.title}]],
+            'modal_qr_guide_title' : [[#{mobile.modal.qr.guide.title}]],
+            'modal_qr_guide_message' : [[#{mobile.modal.qr.guide.message}]],
+            'modal_qr_button_cancel' : [[#{mobile.modal.qr.button.cancel}]],
+            'modal_error_title_lock' : [[#{mobile.modal.error.title.lock}]],
+            'modal_error_title_absence' : [[#{mobile.modal.error.title.absence}]],
+            'modal_error_title_expire' : [[#{mobile.modal.error.title.expire}]],
+            'modal_error_title_notPermit' : [[#{mobile.modal.error.title.notPermit}]],
+            'modal_notice_faq_noMore_articles_title' : [[#{mobile.faq.notice.noMore.articles.title}]],
+            'modal_notice_faq_noMore_articles_message' : [[#{mobile.faq.notice.noMore.articles.message}]],
+            'authenticate_validation_message_noInput_username' : [[#{authenticate.validation.message.notInput.username}]],
+            'authenticate_validation_message_noInput_password' : [[#{authenticate.validation.message.notInput.password}]],
+            'authenticate_validation_message_noInput_otp' : [[#{authenticate.validation.message.notInput.otp}]],
+            'authenticate_validation_message_noInput_newSetPassword' : [[#{authenticate.validation.message.notInput.newSetPassword}]],
+            'authenticate_validation_message_noInput_newSetPasswordConfirm' : [[#{authenticate.validation.message.notInput.newSetPasswordConfirm}]],
+            'authenticate_error_message_expire_otp' : [[#{authenticate.error.message.expire.otp}]],
+            'authenticate_error_message_notExist_otp' : [[#{authenticate.error.message.notExist.otp}]],
+            'authenticate_success_message_resetPassword' : [[#{authenticate.reset-password.message.success}]],
+            'authenticate_success_message_setPassword' : [[#{authenticate.set-password.message.success}]],
+            'authenticate_error_message_mfa' : [[#{authenticate.error.message.mfa}]],
+            'authenticate_error_unknown_message_mfa' : [[#{authenticate.error.unknown.message.mfa}]],
+            'otp_authenticate_success_otpAuthenticateSuccess' : [[#{modal.vpn.tunneling.start.otp-authenticate-success}]],
+            'otp_authenticate_success_message' : [[#{modal.vpn.tunneling.start.message}]],
+            'modal_deviceManagement_update_title' : [[#{mobile.twoButton.modal.deviceManagement.update.title}]],
+            'modal_deviceManagement_update_message' : [[#{mobile.twoButton.modal.deviceManagement.update.message}]],
+            'modal_deviceManagement_update_buttonLeft' : [[#{mobile.twoButton.modal.deviceManagement.update.buttonLeft}]],
+            'modal_deviceManagement_update_buttonRight' : [[#{mobile.twoButton.modal.deviceManagement.update.buttonRight}]],
+            'modal_deviceManagement_delete_title' : [[#{mobile.twoButton.modal.deviceManagement.delete.title}]],
+            'modal_deviceManagement_delete_message' : [[#{mobile.twoButton.modal.deviceManagement.delete.message}]],
+            'modal_deviceManagement_delete_buttonLeft' : [[#{mobile.twoButton.modal.deviceManagement.delete.buttonLeft}]],
+            'modal_deviceManagement_delete_buttonRight' : [[#{mobile.twoButton.modal.deviceManagement.delete.buttonRight}]],
+            'modal_deviceManagement_menu_message' : [[#{mobile.deviceManagement.menu.modal.message}]],
+            'modal_deviceManagement_menu_deleteButton' : [[#{mobile.deviceManagement.menu.modal.deleteButton}]],
+            'modal_deviceManagement_menu_updateButton' : [[#{mobile.deviceManagement.menu.modal.updateButton}]],
+            'modal_deviceManagement_menu_closeButton' : [[#{mobile.deviceManagement.menu.modal.closeButton}]],
+            'modal_deviceManagement_message_notApp' : [[#{mobile.deviceManagement.message.notApp}]],
+            'modal_deviceManagement_message_notSupportBio' : [[#{mobile.deviceManagement.message.notSupportBio}]],
+            'modal_deviceManagement_message_noMobile' : [[#{mobile.deviceManagement.message.noMobile}]],
+            'modal_title_notFound_agentApp' : [[#{mobile.modal.error.title.notFound.agentApp}]],
+            'modal_message_notFound_agentApp' : [[#{mobile.modal.error.message.notFound.agentApp}]],
+            'modal_title_notFound_mfaDevice' : [[#{mobile.modal.error.title.notFound.mfaDevice}]],
+            'modal_message_notFound_mfaDevice' : [[#{mobile.modal.error.message.notFound.mfaDevice}]],
+            'modal_message_notValid_mfaAuth' : [[#{mobile.modal.error.message.notValid.mfaAuth}]],
+            'modal_message_notValid_mfaDevice' : [[#{modal.error.message.notValid.mfaDevice}]],
+            'modal_message_moveTo_agentApp' : [[#{mobile.modal.error.message.moveToAgentApp}]],
+            'modal_prevent_landscape_message' : [[#{mobile.modal.preventLandscapeMode.message}]],
+            'modal_button_vpn_loading_error_cancel' : [[#{mobile.modal.loading.message.vpnTunnelingOpen.addButton}]],
+            'modal_change_password_message_error_sameCharacter3times' : [[#{mobile.modal.change.password.message.error.sameCharacter3times}]],
+            'modal_change_password_message_error_passwordComplex' : [[#{mobile.modal.change.password.message.error.passwordComplex}]],
+            'modal_change_password_message_error_equalPassword' : [[#{mobile.modal.change.password.message.error.equalPassword}]],
+            'modal_change_password_message_error_equalLoginEmp' : [[#{mobile.modal.change.password.message.error.equalLoginEmp}]],
+            'modal_disconnect_vpn_message' : [[#{mobile.modal.disconnect.vpn.message}]],
+            'modal_button_otp_send' : [[#{mobile.authenticate.idPw.button.otpSend}]],
+
+            'modal_secondary_authenticate_select_guide' : [[#{mobile.modal.selectAuthenticationMethod.guide}]],
+            'modal_secondary_authenticate_select_button_biometric' : [[#{mobile.modal.selectAuthenticationMethod.button.biometric}]],
+            'modal_secondary_authenticate_select_button_pattern' : [[#{mobile.modal.selectAuthenticationMethod.button.pattern}]],
+            'modal_secondary_authenticate_select_button_pin' : [[#{mobile.modal.selectAuthenticationMethod.button.pin}]],
+
+            'modal_secondary_authenticate_biometric_register_success_message' : [[#{mobile.modal.commonAuthenticationSymbol.biometric.register.success}]],
+            'modal_secondary_authenticate_pattern_register_success_message' : [[#{mobile.modal.commonAuthenticationSymbol.pattern.register.success}]],
+            'modal_secondary_authenticate_pin_register_success_message' : [[#{mobile.modal.commonAuthenticationSymbol.pin.register.success}]],
+
+            'modal_secondary_authenticate_pin_register_title_message1' : [[#{mobile.modal.commonAuthenticationSymbol.pin.title.message1}]],
+            'modal_secondary_authenticate_pin_register_title_message2' : [[#{mobile.modal.commonAuthenticationSymbol.pin.title.message2}]],
+            'modal_secondary_authenticate_pin_register_title_message3' : [[#{mobile.modal.commonAuthenticationSymbol.pin.title.message3}]],
+
+            'modal_secondary_authenticate_pattern_register_title_message1' : [[#{mobile.modal.commonAuthenticationSymbol.pattern.title.message1}]],
+            'modal_secondary_authenticate_pattern_register_title_message2' : [[#{mobile.modal.commonAuthenticationSymbol.pattern.title.message2}]],
+            'modal_secondary_authenticate_pattern_register_title_message3' : [[#{mobile.modal.commonAuthenticationSymbol.pattern.title.message3}]],
+            'modal_secondary_authenticate_pattern_register_title_message4' : [[#{mobile.modal.commonAuthenticationSymbol.pattern.title.message4}]],
+
+            'modal_pin_pattern_close_confirm_message' : [[#{mobile.modal.authSettingExit.guide}]],
+            'modal_pin_pattern_close_confirm_yes_button' : [[#{mobile.modal.authSettingExit.button.yes}]],
+            'modal_pin_pattern_close_confirm_no_button' : [[#{mobile.modal.authSettingExit.button.no}]],
+
+            'modal_secondary_authenticate_pin_auth_title_message1' : [[#{mobile.modal.mfaAuth.pin.title.message1}]],
+            'modal_secondary_authenticate_pin_auth_title_message2' : [[#{mobile.modal.mfaAuth.pin.title.message2}]],
+            'modal_secondary_authenticate_pin_auth_title_message3' : [[#{mobile.modal.mfaAuth.pin.title.message3}]],
+
+            'modal_secondary_authenticate_pattern_auth_title_message1' : [[#{mobile.modal.mfaAuth.pattern.title.message1}]],
+            'modal_secondary_authenticate_pattern_auth_title_message2' : [[#{mobile.modal.mfaAuth.pattern.title.message2}]],
+            'modal_secondary_authenticate_pattern_auth_title_message3' : [[#{mobile.modal.mfaAuth.pattern.title.message3}]],
+
+            'modal_secondary_authenticate_pin_pattern_auth_fail_maxCount_title' : [[#{mobile.modal.pinPatternAuth.fail.maxCount.title}]],
+            'modal_secondary_authenticate_pin_pattern_auth_fail_maxCount_message' : [[#{mobile.modal.pinPatternAuth.fail.maxCount.message}]],
+            'modal_secondary_authenticate_pin_pattern_auth_fail_maxCount_registerButton' : [[#{mobile.modal.pinPatternAuth.fail.maxCount.registerButton}]],
+            'modal_secondary_authenticate_pin_pattern_auth_fail_maxCount_cancelButton' : [[#{mobile.modal.pinPatternAuth.fail.maxCount.cancelButton}]],
+
+            'modal_mfaAuth_requestFail_title' : [[#{mobile.modal.mfaAuth.requestFail.title}]],
+            'modal_mfaAuth_requestFail_message1' : [[#{mobile.modal.mfaAuth.requestFail.message1}]],
+            'modal_mfaAuth_requestFail_message2' : [[#{mobile.modal.mfaAuth.requestFail.message2}]],
+
+            'modal_pinPatternAuth_fail_count_message' : [[#{mobile.modal.pinPatternAuth.failCount.message}]],
+        }
+        const osType = [[${osType}]];
+
+        window.addEventListener('load', function() {
+            let cssValue = window.matchMedia('(orientation: portrait)').matches ? 'none' : 'block';
+            updateDomCss('m_modal_prevent_landscape-mode', 'display', cssValue);
+        });
+        window.addEventListener('resize', function() {
+            let cssValue = window.matchMedia('(orientation: portrait)').matches ? 'none' : 'block';
+            updateDomCss('m_modal_prevent_landscape-mode', 'display', cssValue);
+        });
+
+        function openAgentApp(isSideBar) {
+            if(isSideBar) {
+                $('.language_toggle_list').slideUp();
+                $("#side_bar").animate({left: "-55%"});
+                $("#side_dim").fadeOut();
+            }
+
+            commonMessageModalOn(modalMessage.modal_common_title_info, modalMessage.modal_message_moveTo_agentApp, modalMessage.modal_common_button_confirm);
+            $('#m_modal_message-box #modalCloseButton').on('click', function() {
+                $('#m_modal_message-box').hide();
+                location.href = 'npag://open';
+                setTimeout(function () {
+                    window.location.replace("/download/vpn-agent");
+                }, 1500);
+            });
+        }
+
+        function openGuide() {
+            let guideFileName = (locale === 'ko' || locale === 'ko_KR')
+                                    ? '/guide/ds_vpn_ssp_guide_mobile_ko.pdf'
+                                    : '/guide/ds_vpn_ssp_guide_mobile_en.pdf'
+
+            const guideUrl = window.location.protocol
+                                                .concat("//")
+                                                .concat(window.location.host)
+                                                .concat(guideFileName);
+
+            isApp()
+                ? webMessage.openDeepLink(guideUrl)
+                : window.open(guideUrl);
+        }
+    </script>
+
+    <!-- content css -->
+    <th:block layout:fragment="css"></th:block>
+    <!-- content script -->
+    <th:block layout:fragment="script"></th:block>
+</head>
+
+</html>

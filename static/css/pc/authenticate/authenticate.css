@@ -1,0 +1,271 @@
+/* otp st */
+
+#pc_auth_otp_left_contents > h2 {
+    margin-bottom: 5rem;
+    color: #888B8D;
+}
+
+#pc_auth_otp_left_contents > h2 > div {
+    color: #E42312;
+    display: inline;
+}
+
+#pc_auth_otp_right_contents > ul > li {
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    height: 7rem;
+    border-radius: 0.8rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+#pc_auth_otp_right_contents > ul > li > h3 {
+    width: 35%;
+    text-align: center;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+#pc_auth_otp_right_contents > ul > li > input {
+    background-color: transparent;
+    width: 65%;
+    height: 7rem;
+    line-height: 7rem;
+    padding: 0 2rem 0 0.5rem;
+    align-items: center;
+    font-family: "CJW_Gothic_B", sans-serif;
+    font-size: 2.2rem;
+    color: #888B8D;
+    outline: none;
+    border: none;
+}
+
+.wrongNBcount {
+    text-align: right;
+    margin-top: 2rem;
+
+}
+
+.otp_s_r_guide_ment > ul > li {
+    display: flex;
+}
+
+.otp_s_r_guide_ment > ul > li > img {
+    margin-right: 1rem;
+    margin-top: 0.7rem;
+
+}
+
+button.otp-authenticate-button {
+    margin: 2.5rem auto;
+}
+
+.i-mark {
+    width: 2.6rem;
+    height: 2.6rem;
+}
+
+.timer {
+    width: 2.6rem;
+    height: 2.9rem;
+}
+
+/* otp ed */
+
+
+
+
+
+
+
+
+
+
+/* set-password st */
+
+#pc_auth_setPass_right_contents > ul > li {
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    height: 7rem;
+    line-height: 7rem;
+    border-radius: 0.8rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+#pc_auth_setPass_right_contents > ul > li > h3 {
+    width: 35%;
+    text-align: center;
+}
+
+#pc_auth_setPass_right_contents > ul > li > input {
+    background-color: transparent;
+    width: 65%;
+    height: 7rem;
+    line-height: 7rem;
+    padding: 0 2rem 0 0.5rem;
+    align-items: center;
+    font-family: "CJW_Gothic_B", sans-serif;
+    font-size: 2.2rem;
+    color: #888B8D;
+    outline: none;
+    border: none;
+}
+
+.pss_match {
+    text-align: right;
+    margin-top: 2rem;
+    color: #E42312;
+    display: none;
+}
+
+#setPasswordButton {
+    margin: 4rem auto;
+}
+
+/* set-password ed */
+
+
+
+
+
+
+
+
+
+
+/* two-factor st */
+
+#pc_auth_2fa_right_contents .btn4 {
+    margin: 2rem 0 5rem;
+}
+
+#twofac_s_r_gdment {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+#twofac_s_r_gdment > p {
+    font-size: 2.5rem;
+    line-height: 3.3rem;
+    letter-spacing: -2%;
+}
+
+/* two-factor ed */
+
+
+
+
+
+
+
+
+
+
+/* npass st */
+
+#pc_auth_npass_left_contents > h2 {
+    color: #888B8D;
+    margin-bottom: 5rem;
+}
+
+#pc_auth_npass_right_contents > div > ul > li {
+    display: flex;
+}
+
+#mfaButton  {
+    margin-bottom: 4rem;
+} 
+
+#pc_auth_npass_right_contents .i-mark {
+    margin-top: 0.7rem;
+    margin-right: 0.8rem;
+}
+
+/* npass ed */
+
+
+
+
+
+
+
+
+
+
+/* set-password-success st */
+
+#pc_auth_setPassSuccess_left_contents > h2 {
+    color: #888B8D;
+    margin-bottom: 5rem;
+}
+
+#setPassSuccess_right_contents_guide {
+    display: flex;
+}
+
+#setPassSuccess_right_contents_guide > img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+}
+
+.reConnectButton {
+    font-family: "CJW_Gothic_B", sans-serif;
+    display: block;
+    margin: 4rem 0;
+    background-color: #E42312;
+    width: 48rem;
+    height: 8rem;
+    line-height: 8rem;
+    border-radius: 0.8rem;
+    color: #fff;
+    font-size: 3.2rem;
+    text-align: center;
+    border: none;
+}
+
+/* set-password-success ed */
+
+.auto_log {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.auto_log_r {
+    padding-left: 0.5rem;
+    align-items: center;
+}
+
+.auto_log_r > div {
+    font-size: 2.8rem;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.auto_log_r > div img {
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-left: 0.5rem;
+}
+
+.auto_log_r > span {
+    background-color: #fff;
+    display: block;
+    font-size: 2rem;
+    border-radius: 0.8rem;
+    padding: 0.7rem 1.5rem;
+}
+
+#mfaAppLinkSendButton {
+    line-height: 95%;
+}

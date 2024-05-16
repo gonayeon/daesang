@@ -1,0 +1,214 @@
+/* sign-in st */
+
+#pc_auth_signIn_right_contents > ul > li {
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    height: 7rem;
+    border-radius: 0.8rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+#pc_sign-in_login_field > li > h3 {
+    width: 35%;
+    text-align: center;
+}
+
+#pc_sign-in_login_field > li > div {
+    padding: 0 2rem 0 0.5rem;
+    align-items: center;
+    width: 65%;
+    height: 6.2rem;
+    line-height: 6.2rem;
+}
+
+#password-view-icon,  #password-hide-icon {
+    filter: invert(66%) sepia(8%) saturate(128%) hue-rotate(161deg) brightness(82%) contrast(83%);
+    width: 2.2rem;
+    height: 2.7rem;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#password-view-icon:hover,  #password-hide-icon:hover {
+    opacity: 1;
+}
+
+#pc_sign-in_login_field input {
+    width: 100%;
+}
+
+#pcSignInPasswordArea > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+#pc_sign-in_login_field #pc_signIn_password {
+    width: 80%;
+    flex-grow: 1;
+}
+
+#password-hide-icon {
+    display: none;
+}
+
+#pc_signIn_id {
+    text-transform: uppercase;
+}
+
+#pc_sign-in_company_select {
+    position: relative;
+}
+
+#pc_sign-in_toggle_feild {
+    height: 100%;
+}
+
+#pc_sign-in_toggle_feild .toggle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+#pc_sign-in_toggle_feild .toggle-header {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.toggle-header > span {
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toggle-header > div {
+    height: 100%;
+}
+
+.toggle-header img {
+    width: 1.7rem;
+    height: auto;
+}
+
+#pc_sign-in_company_list {
+    background-color: #fff;
+    position: absolute;
+    top: 6.5rem;
+    left: 0;
+    width: 100%;
+    height: 32.5rem;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    overflow: auto;
+    display: none;
+    z-index: 10000;
+}
+
+#pc_sign-in_company_list > li {
+    display: block;
+    width: 100%;
+    padding-right: 3.5rem;
+}
+
+#pc_sign-in_company_list > li:hover {
+    background-color: rgba(157,157,156,0.1);
+}
+
+#pc_sign-in_company_list > li:hover > span {
+    color: rgba(0,0,0,0.6);
+}
+
+#pc_sign-in_company_list > li > span {
+    display: block;
+    border-bottom: 0.2rem solid rgba(157,157,156,0.3);
+    padding: 0 2rem;
+    color: rgba(136,139,141,0.6);
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#pcSignInButton {
+    margin-bottom: 3rem;
+}
+
+.auto_log {
+    display: flex;
+}
+
+.auto_log_r {
+    padding-left: 0.5rem;
+    align-items: center;
+}
+
+.auto_log_r > div {
+    font-size: 2.8rem;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.auto_log_r > div img {
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-left: 0.5rem;
+}
+
+.auto_log_r > span {
+    background-color: #fff;
+    display: block;
+    font-size: 2rem;
+    border-radius: 0.8rem;
+    padding: 0.7rem 1.5rem;
+}
+
+.wrongNBcount {
+    text-align: right;
+    position: relative;
+    height: 2.4rem;
+    margin: 2rem 0;
+}
+
+#pc_auth_signIn_right_contents #passwordCheckFailCountDom {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: none;
+}
+
+#pc_auth_signIn_right_contents #password-check_guide_ment {
+    display: none;
+    margin-top: 2rem;
+}
+
+#password-check_guide_ment > ul > li {
+    display: flex;
+    margin-bottom: 1.3rem;
+}
+
+#password-check_guide_ment img {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0.3rem 1rem 0 0 ;
+}
+
+#password-check_guide_ment p {
+    line-height: 3rem;
+}
+
+#pc_auth_signIn_right_contents #pcSignInContactInfoArea {
+    display: none;
+}
+/* sign-in ed */
