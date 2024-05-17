@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&#91;DAESANG SSL VPN&#93; PC SIGN-IN</title>
+
+    <link rel="icon" type="image/x-icon" href="/static/favicon/favicon.ico" sizes="16x16">
+    <link rel="stylesheet" href="/static/css/common/common.css">
+    <link rel="stylesheet" href="/static/css/authenticate/sign-in.css">
+    <link rel="stylesheet" href="/static/css/tailwind/output.css">
+    <link rel="stylesheet" href="/static/css/common/responsive.css">
+
+    <script src="/static/js/library/jquery-3.7.0.min.js"></script>
+    <script src="/static/js/common.js"></script>
+</head>
+<body>
+    <div class="pc-common_wrap">
+        <div class="section_left_wrap">
+            <div>
+                <div class="section_left">
+                    <header id="pc-header">
+                        <nav>
+                            <ul id="gnb">
+                                <div>
+                                    <li>
+                                        <a href="/" id="logo-home-button"></a>
+                                    </li>
+                                    <li>
+                                        <a href="notice-list.html" class="pc_title_notice">Notice</a>
+                                    </li>
+                                    <li>
+                                        <a href="faq-list.html" class="pc_title_faq">FAQ</a></li>
+                                    <li>
+                                        <div id="language">
+                                            <div class="toggle-button">
+                                                <span>한국어</span>&nbsp;&nbsp;
+                                                <img src="/static/images/notice_arrow_down.png" alt="▼">
+                                            </div>
+                                            <ul>
+                                                <li id="language_ko">한국어</li>
+                                                <li id="language_en">영어</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                        
+                                    <li>
+                                        <a href="/static/guide/ds_vpn_ssp_guide_pc_ko.pdf" target="_blank">Manual</a>
+                                    </li>
+                                </div>
+                    
+                                <li>
+                                    <button type="submit" id="signOutButton" class="underline underline-offset-4">다시 접속하기</button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <section>
+                        <h1><img src="/static/images/logo_daesang.png" alt="대상로고"></h1>
+                
+                        <div class="section_left_contents" id="pc_auth_signIn_left_contents">
+                            <h2 class="subC">
+                                VPN사용 등록을 위해<br>임직원 인증을 수행하여 주십시오.
+                            </h2>
+                        </div>
+                    </section>
+                    <footer id="pc-footer">
+                        <div>
+                            <p>Powered by</p>
+                            <a href="/">
+                                <img src="/static/images/footer_npass.png" alt="하단npass로고">
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <div class="section_right_wrap">
+            <div>
+                <div id="pc_auth_signIn_right_contents" class="section_right">
+                    <ul id="pc_sign-in_login_field" class="subC">
+                        <li>
+                            <h3>회사</h3>
+                            <div id="pc_sign-in_company_select">
+                                <div id="pc_sign-in_toggle_feild">
+                                    <div class="toggle-header">
+                                        <span>회사를 선택해 주세요.</span>
+                                        <div>
+                                            <img class="down_arrow" src="/static/images/notice_arrow_down.png" alt="▼">
+                                            <img class="up_arrow hidden" src="/static/images/notice_arrow_up.png" alt="▲">
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <ul id="pc_sign-in_company_list">
+                                    <li>
+                                        <span>대상홀딩스</span>
+                                    </li>
+                                    <li>
+                                        <span>대상주식회사</span>
+                                    </li>
+                                    <li>
+                                        <span>대상다이브스</span>
+                                    </li>
+                                    <li>
+                                        <span>대상건설</span>
+                                    </li>
+                                    <li>
+                                        <span>대상네트웍스</span>
+                                    </li>
+                                    <li>
+                                        <span>대상문화재단</span>
+                                    </li>
+                                    <li>
+                                        <span>대상웰라이프</span>
+                                    </li>
+                                    <li>
+                                        <span>대상정보기술</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+            
+                        <li id="pcSignInUsernameArea">
+                            <h3>사번</h3>
+                            <div>
+                                <input autocomplete="off" maxlength="8" id="pc_signIn_id" type="text" placeholder="사번 6 ~ 8자리">
+                            </div>
+                        </li>
+            
+                        <li id="pcSignInPasswordArea">
+                            <h3>비밀번호</h3>
+                            <div>
+                                <input autocomplete="off" id="pc_signIn_password" type="password" placeholder="비밀번호를 입력해 주세요.">
+                                <img src="/static/images/password-check-eye.png" id="password-view-icon" onclick="clickIconPasswordView();" alt="비밀번호보기아이콘">
+                                <img src="/static/images/password-check-eye-close.png" id="password-hide-icon" onclick="clickIconPasswordView();" alt="비밀번호가리기아이콘">
+                            </div>
+                        </li>
+                    </ul>
+            
+                    <div class="wrongNBcount">
+                        <div id="passwordCheckFailCountDom">
+                            <span>잘못 입력한 횟수 : </span>
+                            <span id="passwordCheckFailCount">0</span> &#47; <span>5</span>
+                        </div>
+                    </div>
+            
+                    <div>
+                        <button id="pcSignInButton" class="pc-sign-in-button common-button-style-80">로그인</button>
+                    </div>
+            
+                    <div class="subC">
+                        <div class="flex gap-2 items-center">
+                            <label class="myCheckbox-label">
+                                <input type="checkbox" class="myCheckbox">
+                            </label>
+                            <span class="pt-[0.01rem]">자동접속</span>
+                            <img src="/static/images/question_mark.png" class="w-8 h-auto" alt="물음표">
+                        </div>
+                        <span class="guide-speech-bubble ml-[3.5rem] mt-2">
+                            공용 PC에서는 정보 보안을 위해 체크를 권장하지 않습니다.
+                        </span>
+                    </div>
+            
+                    <div id="password-check_guide_ment">
+                        <ul>
+                            <li>
+                                <img src="/static/images/otp_i_mark.png" alt="i마크" class="i-mark">
+                                <p>비밀번호를 정확히 입력해 주세요.</p>
+                            </li>
+                            <li>
+                                <img src="/static/images/otp_timer.png" alt="타이머" class="timer">
+                                <p class="pointC">잘못된 입력이 5회 이상일 시 5분간 로그인이 제한됩니다.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalArea"></div>
+    </div>
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&#91;DAESANG SSL VPN&#93; PC FAQ LIST</title>
+
+    <link rel="icon" type="image/x-icon" href="/static/favicon/favicon.ico" sizes="16x16">
+    <link rel="stylesheet" href="/static/css/common/common.css">
+    <link rel="stylesheet" href="/static/css/faq/faq.css">
+    <link rel="stylesheet" href="/static/css/tailwind/output.css">
+    <link rel="stylesheet" href="/static/css/common/responsive.css">
+    
+    <script src="/static/js/library/jquery-3.7.0.min.js"></script>
+    <script src="/static/js/common.js"></script>
+</head>
+<body>
+    <div class="pc-common_wrap">
+        <div class="section_left_wrap">
+            <div>
+                <div class="section_left">
+                    <header id="pc-header">
+                        <nav>
+                            <ul id="gnb">
+                                <div>
+                                    <li>
+                                        <a href="/" id="logo-home-button"></a>
+                                    </li>
+                                    <li>
+                                        <a href="notice-list.html" class="pc_title_notice">Notice</a>
+                                    </li>
+                                    <li>
+                                        <a href="faq-list.html" class="pc_title_faq">FAQ</a></li>
+                                    <li>
+                                        <div id="language">
+                                            <div class="toggle-button">
+                                                <span>한국어</span>&nbsp;&nbsp;
+                                                <img src="/static/images/notice_arrow_down.png" alt="▼">
+                                            </div>
+                                            <ul>
+                                                <li id="language_ko">한국어</li>
+                                                <li id="language_en">영어</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                        
+                                    <li>
+                                        <a href="/static/guide/ds_vpn_ssp_guide_pc_ko.pdf" target="_blank">Manual</a>
+                                    </li>
+                                </div>
+                    
+                                <li>
+                                    <button type="submit" id="signOutButton" class="underline underline-offset-4">다시 접속하기</button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <section>
+                        <div id="faq_list">
+                            <div id="faq_list_content_top">
+                                <div class="faq_title_section" id="faq_list_title">
+                                    <p>FAQ</p>
+                                    <h2>자주 묻는 질문을 확인해보세요.</h2>
+                                </div>
+                    
+                                <div id="faq_list_search">
+                                    <form>
+                                        <div class="pc_search-box">
+                                            <img src="/static/images/search.png" alt="search icon">
+                                            <input type="search" name="searchKeyword" placeholder="검색어를 입력하신 후 엔터를 눌러 검색을 시작하세요." autocomplete="off">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                                
+                            <div class="faq_list_content" id="faq_list_content">
+                                <div id="faq_list_category">
+                                    <ul>
+                                        <li>
+                                            <form>
+                                                <button type="submit" class="select_button_design" onclick="faqTabActive(this);">회원가입</button>
+                                                <button type="submit" onclick="faqTabActive(this);">클라이언트 설치</button>
+                                                <button type="submit" onclick="faqTabActive(this);">휴직&#47;퇴직자</button>
+                                                <button type="submit" onclick="faqTabActive(this);">토큰 재발급</button>
+                                                <button type="submit" onclick="faqTabActive(this);">적용 가이드</button>
+                                                <button type="submit" onclick="faqTabActive(this);">기타</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="faq_list_table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>번호</th>
+                                                <th>제목</th>
+                                                <th>작성일</th>
+                                                <th>구분</th>
+                                            </tr>
+                                        </thead>
+                
+                                        <tbody>
+                                            <!-- 게시물 없을 경우 -->
+                                            <!-- <tr>
+                                                <td colspan="4">게시물이 존재하지 않습니다.</td>
+                                            </tr> -->
+                
+                                            <tr>
+                                                <td class="faqId">1</td>
+                                                <td class="faqTitle">
+                                                    <a href="faq-detail.html">FAQ 00</a>
+                                                </td>
+                                                <td class="faqCreateDate">2024-05-16</td>
+                                                <td class="faqCategoryTitle">회원가입</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="faqId">2</td>
+                                                <td class="faqTitle">
+                                                    <a href="faq-detail.html">FAQ 01 FAQ 01 FAQ 01 FAQ 01 FAQ 01 FAQ 01 FAQ 01 FAQ 01 FAQ 01 </a>
+                                                </td>
+                                                <td class="faqCreateDate">2024-05-16</td>
+                                                <td class="faqCategoryTitle">적용 가이드</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="faqId">3</td>
+                                                <td class="faqTitle">
+                                                    <a href="faq-detail.html">FAQ 02</a>
+                                                </td>
+                                                <td class="faqCreateDate">2024-05-16</td>
+                                                <td class="faqCategoryTitle">기타</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="faqId">4</td>
+                                                <td class="faqTitle">
+                                                    <a href="faq-detail.html">FAQ 03</a>
+                                                </td>
+                                                <td class="faqCreateDate">2024-05-16</td>
+                                                <td class="faqCategoryTitle">기타</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="faqId">5</td>
+                                                <td class="faqTitle">
+                                                    <a href="faq-detail.html">FAQ 04</a>
+                                                </td>
+                                                <td class="faqCreateDate">2024-05-16</td>
+                                                <td class="faqCategoryTitle">기타</td>
+                                            </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                                <div class="fap_list_button_section">
+                                    <div class="page_select">
+                                        <button onclick="prevPageButton();">
+                                            <img src="/static/images/arrow_left.png" alt="왼쪽화살표">
+                                            <a href="#">
+                                                <span">Previous</span>
+                                            </a>
+                                        </button>
+                
+                                        <ul>
+                                            <li class="page_number_active" onclick="pageButtonActive(this);">
+                                                <a href="#">1</a>
+                                            </li>
+                                            <li onclick="pageButtonActive(this);">
+                                                <a href="#">2</a>
+                                            </li>
+                                            <li onclick="pageButtonActive(this);">
+                                                <a href="#">3</a>
+                                            </li>
+                                            <li onclick="pageButtonActive(this);">
+                                                <a href="#">4</a>
+                                            </li>
+                                            <li onclick="pageButtonActive(this);">
+                                                <a href="#">5</a>
+                                            </li>
+                                        </ul>
+                
+                                        <button onclick="nextPageButton();">
+                                            <a href="#">
+                                                <span>Next</span>
+                                            </a>
+                                            <img src="/static/images/arrow_right.png" alt="오른쪽화살표">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer id="pc-footer">
+                        <div>
+                            <p>Powered by</p>
+                            <a href="/">
+                                <img src="/static/images/footer_npass.png" alt="하단npass로고">
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalArea"></div>
+    </div>
+</body>
+</html>

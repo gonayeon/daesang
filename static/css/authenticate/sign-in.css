@@ -78,19 +78,11 @@
     cursor: pointer;
 }
 
-.hidden {
-    display: none;
-}
-
 .toggle-header > span {
     width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.toggle-header > div {
-    height: 100%;
 }
 
 .toggle-header img {
@@ -142,31 +134,7 @@
     margin-bottom: 3rem;
 }
 
-.auto_log {
-    display: flex;
-}
-
-.auto_log_r {
-    padding-left: 0.5rem;
-    align-items: center;
-}
-
-.auto_log_r > div {
-    font-size: 2.8rem;
-    align-items: center;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.auto_log_r > div img {
-    display: block;
-    width: 2.2rem;
-    height: 2.2rem;
-    margin-left: 0.5rem;
-}
-
-.auto_log_r > span {
+.guide-speech-bubble {
     background-color: #fff;
     display: block;
     font-size: 2rem;
@@ -185,30 +153,25 @@
     position: absolute;
     right: 0;
     height: 100%;
-    display: none;
 }
 
 #pc_auth_signIn_right_contents #password-check_guide_ment {
-    display: none;
+    
     margin-top: 2rem;
 }
 
 #password-check_guide_ment > ul > li {
     display: flex;
+    align-items: center;
+    gap: 1rem;
     margin-bottom: 1.3rem;
 }
 
 #password-check_guide_ment img {
     width: 2.4rem;
     height: 2.4rem;
-    margin: 0.3rem 1rem 0 0 ;
 }
 
 #password-check_guide_ment p {
     line-height: 3rem;
 }
-
-#pc_auth_signIn_right_contents #pcSignInContactInfoArea {
-    display: none;
-}
-/* sign-in ed */

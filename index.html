@@ -1,61 +1,141 @@
 <!DOCTYPE html>
-<html
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/pc-default-layout.html}"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="ko">
 <head>
-    <title th:text="#{page.title.pc.mainLading}">[DAESANG SSL VPN] PC MAIN LANDING</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&#91;DAESANG SSL VPN&#93; PC MAIN LANDING</title>
 
-    <th:block layout:fragment="css">
-        <link rel="stylesheet" th:href="@{/css/pc/main/main-landing.css}" >
-        <link rel="stylesheet" th:href="@{/css/pc/common/responsive.css}">
-    </th:block>
-
+    <link rel="icon" type="image/x-icon" href="/static/favicon/favicon.ico" sizes="16x16">
     <link rel="stylesheet" href="/static/css/common/common.css">
     <link rel="stylesheet" href="/static/css/main/main-landing.css">
-    <!-- <script type="text/javascript" th:src="@{/js/pc/main/main-landing.js}"></script> -->
+    <link rel="stylesheet" href="/static/css/tailwind/output.css">
+    <link rel="stylesheet" href="/static/css/common/responsive.css">
+
+    <script src="/static/js/library/jquery-3.7.0.min.js"></script>
+    <script src="/static/js/common.js"></script>
 </head>
 
 <body>
-    <section layout:fragment="left-content">
-        <h1><img src="/images/logo_daesang.png" alt="대상로고"></h1>
-
-        <div class="section_left_contents" id="pc_landing_left_contents">
-            <h2 th:utext="#{pc.landing.sectionLeft.vpnUserAccess.title}">VPN <br> 사용자 접속</h2>
-            <div id="pc-notice-banner">
-                <h3 th:text="#{pc.landing.sectionLeft.notice.title}">공지사항</h3>
-                <div>
-                    <img src="/images/notice_bell.png" alt="bell">
-                    <div id="nt_ct_wrap">
-                        <div>
-                            <ul id="nt_ct">
-                                <li></li>
+    <div class="pc-common_wrap">
+        <div class="section_left_wrap">
+            <div>
+                <div class="section_left">
+                    <header id="pc-header">
+                        <nav>
+                            <ul id="gnb">
+                                <div>
+                                    <li>
+                                        <a href="/" id="logo-home-button"></a>
+                                    </li>
+                                    <li>
+                                        <a href="notice-list.html" class="pc_title_notice">Notice</a>
+                                    </li>
+                                    <li>
+                                        <a href="faq-list.html" class="pc_title_faq">FAQ</a></li>
+                                    <li>
+                                        <div id="language">
+                                            <div class="toggle-button">
+                                                <span>한국어</span>&nbsp;&nbsp;
+                                                <img src="/static/images/notice_arrow_down.png" alt="▼">
+                                            </div>
+                                            <ul>
+                                                <li id="language_ko">한국어</li>
+                                                <li id="language_en">영어</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                        
+                                    <li>
+                                        <a href="/static/guide/ds_vpn_ssp_guide_pc_ko.pdf" target="_blank">Manual</a>
+                                    </li>
+                                </div>
+                    
+                                <li>
+                                    <button type="submit" id="signOutButton" class="underline underline-offset-4">다시 접속하기</button>
+                                </li>
                             </ul>
+                        </nav>
+                    </header>
+                    <section>
+                        <h1><img src="/static/images/logo_daesang.png" alt="대상로고"></h1>
+
+                        <div class="section_left_contents" id="pc_landing_left_contents">
+                            <h2>VPN <br> 사용자 접속</h2>
+                            <div id="pc-notice-banner">
+                                <h3>공지사항</h3>
+                                <div>
+                                    <img src="/static/images/notice_bell.png" alt="bell">
+                                    <div id="nt_ct_wrap">
+                                        <div>
+                                            <ul id="nt_ct">
+                                                <li>
+                                                    <div>
+                                                        <a href="notice-detail.html">01 공지사항 제목이 길면 marquee 제목이 길면 marquee </a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <a href="notice-detail.html">02 공지사항</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <a href="notice-detail.html">03 공지사항</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <a href="notice-detail.html">04 공지사항</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <a href="notice-detail.html">05 공지사항</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="arrowobox">
+                                        <img class="up_arrow" src="/static/images/notice_arrow_up.png" alt="▲">
+                                        <img class="down_arrow" src="/static/images/notice_arrow_down.png" alt="▼">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div id="arrowobox">
-                        <img class="up_arrow" src="/images/notice_arrow_up.png" alt="▲">
-                        <img class="down_arrow" src="/images/notice_arrow_down.png" alt="▼">
-                    </div>
+                    </section>
+                    <footer id="pc-footer">
+                        <div>
+                            <p>Powered by</p>
+                            <a href="/">
+                                <img src="/static/images/footer_npass.png" alt="하단npass로고">
+                            </a>
+                        </div>
+                    </footer>
                 </div>
             </div>
         </div>
-    </section>
 
-    <div class="section_right" layout:fragment="right-content" id="pc_landing_right_contents">
-        <p th:utext="#{pc.landing.sectionRight.guideMent.vpnClientDownload}">
-            VPN 연결은 <a class="vpn_agent_dwnld" onclick="startDownloadVpnClient()">접속 프로그램&#40;<span class="pointC">VPN Client</span>&#41;</a>의 다운로드 및 설치가 필요합니다.
-        </p>
-        <p th:text="#{pc.landing.sectionRight.guideMent.afterDownload}">
-            설치 완료 후 VPN 접속하기를 누르세요.
-        </p>
-        <div>
-            <button class="common-button-style-70 landing-start-button" type="button" th:text="#{pc.landing.sectionRight.button.start}" onclick="startVpn()">VPN 접속하기</button>
+        <div class="section_right_wrap">
+            <div>
+                <div class="section_right" id="pc_landing_right_contents">
+                    <p>
+                        VPN 연결은 <a class="vpn_agent_dwnld">접속 프로그램&#40;<span class="pointC">VPN Client</span>&#41;</a>의 다운로드 및 설치가 필요합니다.
+                    </p>
+                    <p>
+                        설치 완료 후 VPN 접속하기를 누르세요.
+                    </p>
+                    <div>
+                        <button type="button" class="common-button-style-70 landing-start-button" onclick="location.href='sign-in.html'">VPN 접속하기</button>
+                    </div>
+                    <p>
+                        사용자 인증의 편의를 위해 <a class="vpn_agent_dwnld">인증 프로그램</a>을 다운받아 설치 후<br>사용이 가능합니다.
+                    </p>
+                </div>
+            </div>
         </div>
-        <p th:utext="#{pc.landing.sectionRight.guideMent.vpnAgentDownload}">
-            사용자 인증의 편의를 위해 <a class="vpn_agent_dwnld" onclick="startDownloadVpnAgent()">인증 프로그램</a>을 다운받아 설치 후<br>사용이 가능합니다.
-        </p>
+
+        <div id="modalArea"></div>
     </div>
 </body>
 </html>

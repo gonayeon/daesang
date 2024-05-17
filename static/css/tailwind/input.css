@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-1Thin.ttf) format('truetype');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-2ExtraLight.ttf) format('truetype');
+    font-weight: 200;
+}
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-3Light.ttf) format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-4Regular.ttf) format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-5Medium.ttf) format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-6SemiBold.ttf) format('truetype');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-7Bold.ttf) format('truetype');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-8ExtraBold.ttf) format('truetype');
+    font-weight: 800;
+}
+@font-face {
+    font-family: 'Freesentation';
+    src: url(/static/font/Freesentation-9Black.ttf) format('truetype');
+    font-weight: 900;
+}
+
+@layer base {
+    html {@apply h-full text-[62.5%];}
+    body {@apply h-full font-freesentation text-[2.2rem] text-[#333] bg-white;}
+    h2 {@apply text-[3.6rem] leading-[4.8rem];}
+    h3 {@apply text-[3.2rem];}
+    h4 {@apply text-[2.8rem] leading-[4rem];}
+    p {@apply leading-[4rem]}
+}
